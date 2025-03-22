@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+    <style>
+        nav{
+            background-color: #ade9d0;
+            padding: 15px;
+            font-size: large;
+            border-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            padding-right: 10px;
+            border-color: #000000;
+            border-style: solid;
+            border-top-style: none;
+            border-left-style: none;
+            border-bottom: none; 
+        }
+        body{
+            background-color: #49a67f;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        form{
+            background-color: #86d4b4;
+            text-align: left;
+            border-radius: 30px;
+            padding: 10px;
+            margin-top: 5px;
+            padding-left: 50px;
+            font-size: x-large;
+        }
+        #h1{
+            text-align: center;
+            color: rgb(18, 80, 80);
+        }
+        input{
+            font-size: medium;
+        }
+        select{
+            font-size: medium;
+        }
+        label{
+            font-weight: bold;
+        }
+        
+        .btn{
+            display: inline-block;
+            justify-content: center;
+            font-size: x-large;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+<body bgcolor="#49a67f">
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="cadastro.html">Cadastrar</a>       
+    </nav>
+    <form>
+        <h1 id="h1">Cadastre-se</h1>
+        <p>
+        <label>Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+        <label>Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+        </p>
+        
+        <p>
+            <label>Telefone: </label>
+            <input type="tel" maxlength="14"
+            placeholder="(xx)xxxxx-xxxx">
+        
+
+        <label>Idade: </label>
+       <input type="number"
+       placeholder="Idade">
+       </p>
+       
+       <p>
+       <label>Sexo:</label>
+        <input type="radio" id="sexoMasc" name="sexo">Masculino
+        <input type="radio" id="sexoFem" name="sexo">Feminino
+        <label>Veículo:</label>
+        <select >
+            <option>Carro</option>
+            <option>Moto</option>
+            <option>Caminhão</option>
+        </select>    
+    </p>    
+        
+
+        <input type="checkbox" id="termos" name="termos" required>
+        Você concorda com os termos de uso?
+        <p>
+        <input type="submit" id="submit" name="submit" class="btn">
+        <button
+         type="reset" class="btn">
+            Limpar</button> 
+        </p>
+    </form>
+
+</body>
+</html>
