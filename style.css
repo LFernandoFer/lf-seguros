@@ -40,15 +40,16 @@ form, section {
 }
 
 form {
-    padding-left: 50px;
+    position: relative;
+    padding: 30px;
     font-size: x-large;
 }
 
 section {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-    width: 500px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    left: 30%;
 }
 
 #h1 {
@@ -63,12 +64,17 @@ input, select {
 label {
     font-weight: bold;
 }
+section > label{
+    position: absolute;
+    top: -20px;
+}
 
 .btn {
     display: inline-block;
     justify-content: center;
     font-size: x-large;
     border-radius: 5px;
+    letter-spacing: 2px;
 }
 
 img {
