@@ -11,49 +11,47 @@
         <img src="lf seguros logo.webp" alt="LF seguros logo">    
     </header>
     <nav>
-        <a href="index.html">Início</a>
-        <a href="cadastro.html">Cadastrar</a>   
-        <a href="login.html">Login</a>       
+        <a href="index.html" role="navigation">Início</a>
+        <a href="cadastro.html" role="navigation">Cadastrar</a>   
+        <a href="login.html" role="navigation">Login</a>       
     </nav>
     <form action="cadastro.php" method="post">
         <h1 id="h1">Cadastre-se</h1>
         <p>
-        <label>Nome:</label>
+        <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" placeholder="Nome" required>
-        <label>Senha:</label>
+        <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" placeholder="Senha" required>
         </p>
         
         <p>
-            <label>Telefone: </label>
-            <input type="tel" maxlength="14"
+            <label for="telefone">Telefone: </label>
+            <input id ="telefone" type="tel" maxlength="14"
             placeholder="(xx)xxxxx-xxxx">
         
 
-        <label>Idade: </label>
-       <input type="number"
+        <label for="idade">Idade: </label>
+       <input id="idade" type="number"
        placeholder="Idade">
        </p>
        
        <p>
-       <label>Sexo:</label>
+       <label for="sexo">Sexo:</label>
         <input type="radio" id="sexoMasc" name="sexo">Masculino
         <input type="radio" id="sexoFem" name="sexo">Feminino
         <label>Veículo:</label>
-        <select >
+        <select>
             <option>Carro</option>
             <option>Moto</option>
             <option>Caminhão</option>
         </select>    
     </p>    
-        
-
-        <input type="checkbox" id="termos" name="termos" required>
+        <input type="checkbox" id="termos" name="termos" required role="checkbox">
         Você concorda com os termos de uso?
         <p>
-        <input type="submit" id="submit" name="submit" class="btn">
+        <input type="submit" id="submit" name="submit" class="btn" role="button">
         <button
-         type="reset" class="btn">
+         type="reset" class="btn" role="button">
             Limpar</button> 
         </p>
     </form>
