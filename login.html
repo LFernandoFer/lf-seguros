@@ -12,22 +12,22 @@
             <img src="lf seguros logo.webp" alt="LF seguros logo">   
     </header>
     <nav>
-        <a href="index.html">Início</a>
-        <a href="cadastro.html">Cadastrar</a>  
-        <a href="login.html">Login</a>     
+        <a href="index.html" role="navigation">Início</a>
+        <a href="cadastro.html" role="navigation">Cadastrar</a>  
+        <a href="login.html" role="navigation">Login</a>     
     </nav>
-    <section class="login">
+    <form class="login">
         <h1>Login</h1>
         <p>
-        <label>Usuário:<labelp>
-        <input type="text"/>
+        <label for="usuario">Usuário:<labelp>
+        <input type="text" id="usuario" placeholder="Usuario" required/>
     </p>
     <p>
-        <label>Senha:</label>
-        <input type="text"/> 
+        <label for="senha">Senha:</label>
+        <input id="senha" type="password" placeholder="Senha" required/> 
     </p>
-    <input type="submit" class="btn" id="btnEntrar" onclick="Entrar()"/>
-    </section>
+    <input role="button" type="submit" class="btn" id="btnEntrar" onclick="Entrar()"/>    
+    </form>
 
     <script>
         function Entrar() 
