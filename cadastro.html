@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastros</title>
     <link rel="stylesheet" href="style.css">
+    <script src="validaForm.js"></script>
 </head>
 <body bgcolor="#49a67f">
     <header>
@@ -15,7 +16,7 @@
         <a href="cadastro.html">Cadastrar</a>   
         <a href="login.html">Login</a>       
     </nav>
-    <form action="cadastro.php" method="post">
+    <form action="cadastro.php" method="post" onsubmit="return validarFormulario()">
         <h1 id="h1">Cadastre-se</h1>
         <p>
         <label>Nome:</label>
@@ -32,7 +33,7 @@
 
         <label>Idade: </label>
        <input type="number"
-       placeholder="Idade">
+       placeholder="Idade" id="idade">
        </p>
        
        <p>
@@ -40,10 +41,10 @@
         <input type="radio" id="sexoMasc" name="sexo">Masculino
         <input type="radio" id="sexoFem" name="sexo">Feminino
         <label>Veículo:</label>
-        <select >
-            <option>Carro</option>
-            <option>Moto</option>
-            <option>Caminhão</option>
+        <select id="veiculo">
+            <option value="Carro">Carro</option>
+            <option value="Moto">Moto</option>
+            <option value="Caminhão">Caminhão</option>
         </select>    
     </p>    
         
@@ -51,7 +52,8 @@
         <input type="checkbox" id="termos" name="termos" required>
         Você concorda com os termos de uso?
         <p>
-        <input type="submit" id="submit" name="submit" class="btn">
+        <input type="submit" id="submit" name="submit" class="btn"
+        value="Enviar">
         <button
          type="reset" class="btn">
             Limpar</button> 
