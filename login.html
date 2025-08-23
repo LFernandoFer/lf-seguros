@@ -16,25 +16,21 @@
         <a href="cadastro.html" role="navigation">Cadastrar</a>  
         <a href="login.html" role="navigation">Login</a>     
     </nav>
-    <form class="login">
+    <form id="login" class="login">
         <h1>Login</h1>
         <p>
-        <label for="usuario">Usuário:<labelp>
-        <input type="text" id="usuario" placeholder="Usuario" required/>
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" name="usuario" placeholder="Usuario" required/>
     </p>
     <p>
         <label for="senha">Senha:</label>
-        <input id="senha" type="password" placeholder="Senha" required/> 
+        <input id="senha" name="senha" type="password" placeholder="Senha" required/> 
     </p>
-    <input role="button" type="submit" class="btn" id="btnEntrar" onclick="Entrar()"/>    
+    <input role="button" type="submit" class="btn"/>    
     </form>
 
-    <script>
-        function Entrar() 
-        {
-            console.log("deu certo");
-            document.location.href= '/restrito.html';
-        }
-    </script>
+    <p id="error-message"></p>
+
+    <script src="js/login.js"></script>
 </body>
 </html>
