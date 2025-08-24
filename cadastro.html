@@ -16,23 +16,23 @@
         <a href="cadastro.html" role="navigation">Cadastrar</a>   
         <a href="login.html" role="navigation">Login</a>       
     </nav>
-    <form action="cadastro.php" method="post" onsubmit="return validarFormulario()">
+    <form id="formCad">
         <h1 id="h1">Cadastre-se</h1>
         <p>
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+        <input type="text" id="nome" name="usuario" placeholder="Nome" required>
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" placeholder="Senha" required>
         </p>
         
         <p>
             <label for="telefone">Telefone: </label>
-            <input id ="telefone" type="tel" maxlength="14"
+            <input id ="telefone" name="telefone" type="tel" maxlength="14"
             placeholder="(xx)xxxxx-xxxx">
         
 
         <label for="idade">Idade: </label>
-       <input id="idade" type="number"
+       <input id="idade" name="idade" type="number"
        placeholder="Idade">
        </p>
        
@@ -41,7 +41,7 @@
         <input type="radio" id="sexoMasc" name="sexo">Masculino
         <input type="radio" id="sexoFem" name="sexo">Feminino
         <label>Veículo:</label>
-        <select id="veiculo">
+        <select id="veiculo" name="veiculo">
             <option value="Carro">Carro</option>
             <option value="Moto">Moto</option>
             <option value="Caminhão">Caminhão</option>
@@ -50,12 +50,15 @@
         <input type="checkbox" id="termos" name="termos" required role="checkbox">
         Você concorda com os termos de uso?
         <p>
-        <input type="submit" id="submit" name="submit" class="btn" role="button" value="Enviar">
+        <button type="submit" id="submit" name="submit" class="btn" role="button" value="Enviar">Enviar</button>
         <button
          type="reset" class="btn" role="button">
             Limpar</button> 
+
+            <p id="error-message"></p>
         </p>
     </form>
 
 </body>
+<script src="js/cadastro.js"></script>
 </html>
