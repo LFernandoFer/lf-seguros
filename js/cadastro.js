@@ -1,39 +1,49 @@
-document.getElementById("formCad").addEventListener("submit", function (e) {
-    e.preventDefault(); 
-
+document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("formCad");
-    const formData = new FormData(form);
 
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "cadastro.php", true);
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
 
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            try {
-                console.log("Resposta do servidor:", xhr.responseText);
-                const response = JSON.parse(xhr.responseText);
+        if (!validarFormulario()) return;
 
-                if (response.success) {
-                    // Redireciona para o dashboard
-                    window.location.href = "/lf%20seguros/restrito.php";
-                } else {
-                    // Exibe mensagem de erro
-                    document.getElementById("error-message").textContent = response.message;
+        const formData = new FormData(form);
+
+        // Adiciona o sexo usando a função do validaForm.js
+        const sexo = obterSexoSelecionado();
+        formData.set("sexo", sexo);
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "cadastro.php", true);
+
+        xhr.onload = function() {
+            const errorMessage = document.getElementById('error-message');
+            if (xhr.status === 200) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        errorMessage.style.color = "green";
+                        errorMessage.textContent = response.message;
+                        form.reset();
+                    } else {
+                        errorMessage.style.color = "red";
+                        errorMessage.textContent = response.message;
+                    }
+                } catch (e) {
+                    errorMessage.style.color = "red";
+                    errorMessage.textContent = "Resposta inválida do servidor.";
                 }
-            } catch (err) {
-                console.error("Erro ao processar a resposta JSON:", err);
-                document.getElementById("error-message").textContent = "Erro inesperado no cadastro.";
+            } else {
+                errorMessage.style.color = "red";
+                errorMessage.textContent = "Erro ao enviar formulário. Código: " + xhr.status;
             }
-        } else {
-            //console.error("Erro HTTP:", xhr.status);
-            document.getElementById("error-message").textContent = "Erro na comunicação com o servidor.";
-        }
-    };
+        };
 
-    xhr.onerror = function () {
-        console.error("Erro de rede na requisição.");
-        document.getElementById("error-message").textContent = "Erro de rede.";
-    };
+        xhr.onerror = function() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.color = "red";
+            errorMessage.textContent = "Erro de conexão ao enviar o formulário.";
+        };
 
-    xhr.send(formData);
+        xhr.send(formData);
+    });
 });
